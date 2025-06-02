@@ -2,13 +2,13 @@ import streamlit as st
 import PyPDF2
 import google.generativeai as genai
 
-# ✅ 1. Setup Gemini API key
+
 genai.configure(api_key="AIzaSyCSVTLWUxsgQmbd61fxAbrzaERE2mTm0vI")
 
-# ✅ 2. Load Gemini model
+
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
-# ✅ 3. Streamlit page setup and styling
+
 st.set_page_config(page_title="📘 AI Study Assistant", layout="wide")
 
 st.markdown("""
@@ -59,9 +59,9 @@ st.markdown("""
         font-size: 1em;
         color: #222 !important;
     }
-    /* ✅ Fix label and placeholder visibility for text input */
+   
 .stTextInput label {
-    color: #222 !important;  /* label: "Your Question" */
+    color: #222 !important;  
     font-weight: 600;
 }
 
@@ -94,17 +94,17 @@ st.markdown("""
 
 st.title("📘 AI Study Assistant")
 
-# ✅ File uploader
+
 st.markdown(
     '<span style="color:#444;font-weight:700;font-size:1.1em;">📤 Upload Lecture Slides or PDF</span>',
     unsafe_allow_html=True
 )
 uploaded_file = st.file_uploader("", type=["pdf"])
 
-# Disable buttons if no file
+
 disabled = uploaded_file is None
 
-# Summary button
+
 if st.button("📝 Generate Summary", disabled=disabled):
     with st.spinner("Generating summary..."):
         try:
@@ -124,7 +124,7 @@ if st.button("📝 Generate Summary", disabled=disabled):
         except Exception as e:
             st.error(f"❌ Summary Error: {e}")
 
-# Flashcards
+
 if st.button("📋 Generate Flashcards", disabled=disabled):
     with st.spinner("Creating flashcards..."):
         try:
@@ -142,7 +142,7 @@ if st.button("📋 Generate Flashcards", disabled=disabled):
         except Exception as e:
             st.error(f"❌ Flashcard Error: {e}")
 
-# Quiz
+
 if st.button("❓ Generate Quiz Questions", disabled=disabled):
     with st.spinner("Creating quiz questions..."):
         try:
@@ -163,7 +163,7 @@ if st.button("❓ Generate Quiz Questions", disabled=disabled):
         except Exception as e:
             st.error(f"❌ Quiz Error: {e}")
 
-# Ask a Question
+
 st.subheader("💬 Ask a Question About the Content")
 user_question = st.text_input(
     "Your Question",
