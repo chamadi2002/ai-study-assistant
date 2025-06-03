@@ -1,10 +1,9 @@
 import streamlit as st 
 import PyPDF2
 import google.generativeai as genai
-import os
-genai.configure(GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 
 
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 
 
