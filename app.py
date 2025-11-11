@@ -4,7 +4,8 @@ import google.generativeai as genai
 
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-model = genai.GenerativeModel(model_name="gemini-1.5-flash")
+model = genai.GenerativeModel(model_name="gemini-1.5-flash-latest")
+
 
 
 st.set_page_config(page_title="📘 AI Study Assistant", layout="wide")
